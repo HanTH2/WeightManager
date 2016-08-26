@@ -3,12 +3,12 @@ package jp.premama.weightmanage.activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import jp.premama.weightmanage.R;
 import jp.premama.weightmanage.base.BaseFragmentActivity;
@@ -29,7 +29,8 @@ public class ManageWeightActivity extends BaseFragmentActivity implements View.O
     private RadioGroup mLayoutFooter;
     private Constants.TAG_TYPE_MENU mCurrentTab = Constants.TAG_TYPE_MENU.TAG_NONE;
     private Constants.TAG_TYPE_DETAIL mCurrentTabDetail = Constants.TAG_TYPE_DETAIL.TAG_NONE;
-    private Toolbar mToolbar;
+    private TextView mTvToolTitleBar;
+    private RelativeLayout mRlActionBar;
 
     @Override
     protected Fragment onCreateMainFragment(Bundle savedInstancesState) {
@@ -47,6 +48,7 @@ public class ManageWeightActivity extends BaseFragmentActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_manage);
         initView();
+        initData();
     }
 
     private void initView() {
@@ -54,14 +56,22 @@ public class ManageWeightActivity extends BaseFragmentActivity implements View.O
         mBtnBirthDay = (RadioButton) findViewById(R.id.btn_birth_day);
         mBtnChart = (RadioButton) findViewById(R.id.btn_chart);
         mLayoutFooter = (RadioGroup) findViewById(R.id.layoutFooter);
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mTvToolTitleBar = (TextView) findViewById(R.id.tv_top_bar_title);
+        mRlActionBar = (RelativeLayout)findViewById(R.id.toolbar);
 
-        //setSupportActionBar(mToolbar);
-        //mToolbar.setTitleTextColor(Color.WHITE);
-        //mToolbar.setSubtitleTextColor(Color.WHITE);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        mToolbar.setTitleTextColor(Color.WHITE);
+//        mToolbar.setSubtitleTextColor(Color.WHITE);
         mBtnBabyCondition.setOnClickListener(this);
         mBtnBirthDay.setOnClickListener(this);
         mBtnChart.setOnClickListener(this);
+    }
+
+    private void initData(){
+        if (mRlActionBar.getVisibility() == View.GONE){
+            mRlActionBar.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -103,29 +113,35 @@ public class ManageWeightActivity extends BaseFragmentActivity implements View.O
     private long exitTimer = Long.MIN_VALUE;
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0){
+            FragmentManager fm = getSupportFragmentManager();
+            if (mFragmentTagStack.size() > 0){
+                Fragment f = fm.findFragmentByTag(mFragmentTagStack.peek());
+                if (f instanceof BackPressListener){
+                    if (((BackPressListener)f).onBackPress()){
+                        return true;
+                    }
+                }
+            }
+            boolean tryFinish = false;
+            if (mFragmentTagStack.size() == 1){
+                tryFinish = true;
+            }
+
+            if (tryFinish){
+                if ((exitTimer + EXIT_INTERVAL) < System.currentTimeMillis()){
+                    //Toast.makeText(this, "Tap back button again to exit app", Toast.LENGTH_SHORT).show();
+                    exitTimer = System.currentTimeMillis();
+                }else {
+                    finish();
+                }
+                return true;
+            }else {
+                return super.dispatchKeyEvent(event);
+            }
+        }
         return super.dispatchKeyEvent(event);
-//        if (event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_BACK
-//                && event.getRepeatCount() == 0){
-//            FragmentManager fm = getSupportFragmentManager();
-//            if (mFragmentTagStack.size() > 0){
-//                Fragment f = fm.findFragmentByTag(mFragmentTagStack.peek());
-//                if (f instanceof BackPressListener){
-//                    if (((BackPressListener)f).onBackPress()){
-//                        return true;
-//                    }
-//                }
-//            }
-//            boolean tryFinish = false;
-//            if (mFragmentTagStack.size() == 1){
-//                tryFinish = true;
-//            }
-//
-//            if (tryFinish){
-//                if ((exitTimer + EXIT_INTERVAL) < System.currentTimeMillis()){
-//                    Toast.makeText(getApplicationContext(),)
-//                }
-//            }
-//        }
     }
 
     @Override
@@ -136,6 +152,27 @@ public class ManageWeightActivity extends BaseFragmentActivity implements View.O
     @Override
     public void hideFooterLayout() {
         mLayoutFooter.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void exitMain() {
+        this.finish();
+    }
+
+    @Override
+    public void removeTopFragmentContext() {
+        getFragmentManager().popBackStack();
+        mFragmentTagStack.pop();
+    }
+
+    @Override
+    public void hideTopBarLayout() {
+        mRlActionBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void displayTitleTopBar(String title) {
+        mTvToolTitleBar.setText(title);
     }
 
     @Override

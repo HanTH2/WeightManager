@@ -6,20 +6,17 @@
     android:orientation="vertical"
     tools:context=".activity.ManageWeightActivity">
 
-    <android.support.v7.widget.Toolbar
+    <include
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_scrollFlags="scroll|enterAlways" />
+        layout="@layout/top_bar_main_type"/>
 
     <LinearLayout
         android:id="@+id/layoutContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
         android:background="@android:color/white"
         android:orientation="vertical"
+        android:layout_below="@+id/toolbar"
         android:layout_above="@+id/layoutFooter"/>
 
     <RadioGroup

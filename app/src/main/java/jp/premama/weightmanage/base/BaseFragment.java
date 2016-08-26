@@ -20,10 +20,12 @@ abstract public class BaseFragment extends Fragment {
     protected Context mContext;
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         mCurrentActivity = getActivity();
-        mMainActivityListener = (MainActivityListener)activity;
+        if (context instanceof Activity){
+            mMainActivityListener = (MainActivityListener)context;
+        }
     }
 
     @Override
@@ -36,6 +38,7 @@ abstract public class BaseFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
+        initData();
         if (mCurrentActivity instanceof ManageWeightActivity) {
             if (hasFooterLayout()) {
                 mMainActivityListener.showFooterLayout();
@@ -68,6 +71,8 @@ abstract public class BaseFragment extends Fragment {
     }
 
     abstract protected void initView(View view);
+
+    abstract protected void initData();
 
     abstract protected boolean hasFooterLayout();
 

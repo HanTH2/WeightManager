@@ -40,6 +40,11 @@ public class BirthDayFragment extends BaseFragment {
     }
 
     @Override
+    protected void initData() {
+        mMainActivityListener.displayTitleTopBar("Birth Day");
+    }
+
+    @Override
     protected boolean hasFooterLayout() {
         return true;
     }

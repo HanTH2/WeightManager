@@ -48,6 +48,11 @@ public class BabyConditionFragment extends BaseFragment implements View.OnClickL
     }
 
     @Override
+    protected void initData() {
+        mMainActivityListener.displayTitleTopBar("Baby Condition");
+    }
+
+    @Override
     protected boolean hasFooterLayout() {
         return true;
     }

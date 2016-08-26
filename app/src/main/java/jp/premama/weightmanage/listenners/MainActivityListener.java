@@ -12,4 +12,12 @@ public interface MainActivityListener {
     void showAdviceFragment();
 
     void showExperienceFragment();
+
+    void exitMain();
+
+    void removeTopFragmentContext();
+
+    void displayTitleTopBar(String title);
+
+    void hideTopBarLayout();
 }

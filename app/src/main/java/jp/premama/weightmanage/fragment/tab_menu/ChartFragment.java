@@ -65,6 +65,11 @@ public class ChartFragment extends BaseFragment {
     }
 
     @Override
+    protected void initData() {
+        mMainActivityListener.displayTitleTopBar("Chart");
+    }
+
+    @Override
     protected boolean hasFooterLayout() {
         return true;
     }

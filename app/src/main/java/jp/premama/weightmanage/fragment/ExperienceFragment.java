@@ -26,12 +26,19 @@ public class ExperienceFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_experience, container, false);
+        initView(view);
+        initData();
         return view;
     }
 
     @Override
     protected void initView(View view) {
 
+    }
+
+    @Override
+    protected void initData() {
+        mMainActivityListener.hideTopBarLayout();
     }
 
     @Override
