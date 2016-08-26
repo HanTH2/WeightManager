@@ -5,7 +5,11 @@ package jp.premama.weightmanage.constant;
  */
 public class Constants {
 
-    public enum TAG_TYPE{
-        TAG_NONE, TAG_BABY_CONDITION, TAG_BIRTH_DATE, TAG_CHART, TAG_ADVICE, TAG_EXPERIENCE;
+    public enum TAG_TYPE_MENU {
+        TAG_NONE, TAG_BABY_CONDITION, TAG_BIRTH_DATE, TAG_CHART;
+    }
+
+    public enum TAG_TYPE_DETAIL {
+        TAG_NONE, TAG_ADVICE, TAG_EXPERIENCE;
     }
 }

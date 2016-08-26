@@ -1,4 +1,4 @@
-package jp.premama.weightmanage.fragment;
+package jp.premama.weightmanage.fragment.tab_menu;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -38,7 +38,8 @@ public class BabyConditionFragment extends BaseFragment implements View.OnClickL
         return view;
     }
 
-    private void initView(View view){
+    @Override
+    public void initView(View view){
         mBtnAdvice = (Button)view.findViewById(R.id.btn_advice);
         mBtnExperience = (Button)view.findViewById(R.id.btn_experience);
 
@@ -47,11 +48,18 @@ public class BabyConditionFragment extends BaseFragment implements View.OnClickL
     }
 
     @Override
+    protected boolean hasFooterLayout() {
+        return true;
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_advice:
+                mMainActivityListener.showAdviceFragment();
                 break;
             case R.id.btn_experience:
+                mMainActivityListener.showExperienceFragment();
                 break;
             default:
                 break;

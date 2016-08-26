@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import jp.premama.weightmanage.activity.MainActivity;
+import jp.premama.weightmanage.activity.ManageWeightActivity;
 import jp.premama.weightmanage.listenners.MainActivityListener;
 
 /**
@@ -33,7 +35,16 @@ abstract public class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        initView(view);
+        if (mCurrentActivity instanceof ManageWeightActivity) {
+            if (hasFooterLayout()) {
+                mMainActivityListener.showFooterLayout();
+            } else {
+                mMainActivityListener.hideFooterLayout();
+            }
+        } else if (mCurrentActivity instanceof MainActivity) {
+            // do something
+        }
     }
 
     @Override
@@ -44,8 +55,15 @@ abstract public class BaseFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        if (!hasFooterLayout()){
-
+        if (mCurrentActivity instanceof ManageWeightActivity) {
+            if (!hasFooterLayout()) {
+                mMainActivityListener.showFooterLayout();
+            } else {
+                mMainActivityListener.hideFooterLayout();
+            }
+            mMainActivityListener = null;
+        } else if (mCurrentActivity instanceof MainActivity) {
+            mMainActivityListener = null;
         }
     }
 

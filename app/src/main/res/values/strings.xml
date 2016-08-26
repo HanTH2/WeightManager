@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">WeightManage</string>
+    <string name="activity_start_manager_weight">楽しく体重管理をはじめましょう！</string>
+    <string name="activity_repair_data">データの修正する</string>
+    <string name="activity_next">続ける</string>
+    <string name="activity_manage_weight_baby_condition">ベビーの状態</string>
+    <string name="activity_manage_weight_baby_birth_day">出産予定日</string>
+    <string name="activity_manage_weight_baby_chart">グラフ</string>
+    <string name="fragment_baby_condition_expert_advice">専門家のアドバイス</string>
+    <string name="fragment_baby_condition_experience_mom">この時期にあなたと似た状況だった先輩ママの体験談</string>
+    <string name="fragment_baby_condition_advice_for_weeks_five">らくらく体重管理</string>
+    <string name="confirm_exit">Tap back button again to exit app</string>
 </resources>

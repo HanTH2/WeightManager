@@ -1,11 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/pastel">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="CHART"/>
+        android:layout_height="25dp"
+        android:layout_marginLeft="@dimen/fragment_chart_margin_menu_selector"
+        android:layout_marginRight="@dimen/fragment_chart_margin_menu_selector"
+        android:layout_marginBottom="@dimen/fragment_chart_margin_btn_bottom"
+        android:layout_marginTop="@dimen/fragment_chart_margin_btn_bottom10">
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <RadioButton
+                android:id="@+id/btn_radio1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:background="@drawable/btn_chart_selector_left"
+                android:textColor="@drawable/btn_chart_textcolor_selector"
+                android:text="Button 1"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/btn_radio2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:layout_weight="1"
+                android:background="@drawable/btn_chart_selector"
+                android:textColor="@drawable/btn_chart_textcolor_selector"
+                android:text="Button 2"
+                android:gravity="center"/>
+
+            <RadioButton
+                android:id="@+id/btn_radio3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:background="@drawable/btn_chart_selector_right"
+                android:textColor="@drawable/btn_chart_textcolor_selector"
+                android:text="Button 3"
+                android:gravity="center"/>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="@dimen/fragment_chart_margin_menu_selector"
+        android:layout_marginRight="@dimen/fragment_chart_margin_menu_selector"
+        android:layout_marginBottom="@dimen/fragment_chart_margin_btn_bottom"
+        android:background="@color/pastel60"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:text="Text Tieng Nhat Tai Day Them Nhieu Nhieu Dong Chut He"
+            android:textColor="@color/blue"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="(Kg)"
+            android:layout_marginLeft="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="13dp"/>
+
+        <LinearLayout
+            android:id="@+id/container_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="42dp"
+                android:layout_height="match_parent"
+                android:text="(Week)"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@android:color/black"
+                android:textSize="13dp"
+                android:gravity="bottom"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:orientation="horizontal"
+        android:background="@color/pastel60"
+        android:paddingTop="@dimen/fragment_chart_margin_btn_bottom"
+        android:paddingBottom="@dimen/fragment_chart_margin_btn_bottom">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_chart_custom_corner_border"
+            android:text="Button 1"
+            android:textColor="@color/blue"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/fragment_chart_margin_btn_bottom"
+            android:layout_marginLeft="@dimen/fragment_chart_margin_btn_bottom10"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_chart_custom_corner_border"
+            android:textColor="@color/blue"
+            android:text="Button 2"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/fragment_chart_margin_btn_bottom"
+            android:layout_marginRight="@dimen/fragment_chart_margin_btn_bottom10" />
+
+    </LinearLayout>
 </LinearLayout>

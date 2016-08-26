@@ -13,12 +13,22 @@
         android:background="?attr/colorPrimary"
         app:layout_scrollFlags="scroll|enterAlways" />
 
+    <LinearLayout
+        android:id="@+id/layoutContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:layout_above="@+id/layoutFooter"/>
+
     <RadioGroup
         android:id="@+id/layoutFooter"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
+        android:layout_gravity="center"
         android:weightSum="3">
 
         <RadioButton
@@ -28,9 +38,33 @@
             android:layout_weight="1"
             android:button="@null"
             android:checked="true"
+            android:text="@string/activity_manage_weight_baby_condition"
+            android:background="@drawable/btn_menu_selector_left"
+            android:textColor="@android:color/white"
             android:gravity="center"
-            android:text="BaBy"
-            android:textSize="20dp"/>
+            android:textSize="15dp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
+
+        <RadioButton
+            android:id="@+id/btn_birth_day"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:layout_weight="1"
+            android:background="@drawable/btn_menu_selector"
+            android:textColor="@android:color/white"
+            android:text="@string/activity_manage_weight_baby_birth_day"
+            android:gravity="center"
+            android:textSize="15dp"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
 
         <RadioButton
             android:id="@+id/btn_chart"
@@ -38,19 +72,12 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:button="@null"
+            android:background="@drawable/btn_menu_selector_right"
+            android:textColor="@android:color/white"
+            android:text="@string/activity_manage_weight_baby_chart"
             android:gravity="center"
-            android:text="BirthDay"
-            android:textSize="20dp"/>
+            android:textSize="15dp"/>
 
-        <RadioButton
-            android:id="@+id/btn_birth_day"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:gravity="center"
-            android:text="Chart"
-            android:textSize="20dp"/>
     </RadioGroup>
 
 </RelativeLayout>

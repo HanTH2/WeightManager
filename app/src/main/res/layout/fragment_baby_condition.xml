@@ -4,25 +4,22 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/layoutContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
         android:background="@android:color/white"
-        android:orientation="vertical"
-        android:layout_above="@+id/layoutFooter">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Loi Khuyen Cho Tuan Thu 5"
+            android:text="@string/fragment_baby_condition_advice_for_weeks_five"
             android:gravity="center"
             android:textSize="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Trong pham vi duy tri thich hop hay tiep tuc duy tri nhu vay"
             android:gravity="center|left"
             android:paddingLeft="50dp"
             android:layout_marginTop="20dp"
@@ -33,16 +30,16 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textSize="20dp"
-            android:text="Loi khuyen cua chuyen gia"
+            android:text="@string/fragment_baby_condition_expert_advice"
             android:paddingLeft="50dp"
             android:layout_marginTop="100dp"/>
 
         <Button
             android:id="@+id/btn_experience"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:textSize="20dp"
-            android:text="Trai nghiem cua cac ba me di truoc"
+            android:text="@string/fragment_baby_condition_experience_mom"
             android:paddingLeft="50dp" />
 
     </LinearLayout>

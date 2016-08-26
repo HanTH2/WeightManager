@@ -8,4 +8,8 @@ public interface MainActivityListener {
     void showFooterLayout();
 
     void hideFooterLayout();
+
+    void showAdviceFragment();
+
+    void showExperienceFragment();
 }

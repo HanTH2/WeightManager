@@ -25,7 +25,17 @@ public class AdviceFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chart, container, false);
+        View view = inflater.inflate(R.layout.fragment_advice, container, false);
         return view;
+    }
+
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected boolean hasFooterLayout() {
+        return true;
     }
 }

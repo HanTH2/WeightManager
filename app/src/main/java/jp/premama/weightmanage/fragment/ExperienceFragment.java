@@ -28,4 +28,14 @@ public class ExperienceFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_experience, container, false);
         return view;
     }
+
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected boolean hasFooterLayout() {
+        return true;
+    }
 }

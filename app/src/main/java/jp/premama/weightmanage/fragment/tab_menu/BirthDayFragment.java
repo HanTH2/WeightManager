@@ -1,4 +1,4 @@
-package jp.premama.weightmanage.fragment;
+package jp.premama.weightmanage.fragment.tab_menu;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -33,4 +33,15 @@ public class BirthDayFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_birth_day, container, false);
         return view;
     }
+
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected boolean hasFooterLayout() {
+        return true;
+    }
+
 }

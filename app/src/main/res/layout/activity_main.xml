@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="Hello World!"
+        android:text="@string/activity_start_manager_weight"
         android:gravity="center"
         android:textSize="30dp"
         android:layout_weight="1"/>
@@ -27,20 +27,20 @@
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
-            android:text="Sua Data"
+            android:text="@string/activity_repair_data"
             android:textSize="20dp"
             android:gravity="center"/>
 
         <Button
             android:id="@+id/btn_next"
             android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:textSize="20dp"
             android:gravity="center"
-            android:text="Tiep"/>
+            android:text="@string/activity_next"/>
 
     </LinearLayout>
 
